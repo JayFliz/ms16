@@ -38,7 +38,8 @@ const Footer = React.createClass({
   render : function() {
     return (
       <footer>
-        Footer!
+        <a className="button">test</a>
+        <button>test</button>
       </footer>
     )
   }

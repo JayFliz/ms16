@@ -1,1 +1,19 @@
-/* Molecule specific styles go here */
+/*- ## Buttons -----------------------------------------------*/
+:--button {
+  display: inline-block;
+  appearance: none;
+  background: #ccc;
+  height: unset;
+  color: #000;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.25em;
+  text-decoration: none;
+  padding: .5em 1em;
+  border: none;
+  border-radius: .25rem;
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  }
