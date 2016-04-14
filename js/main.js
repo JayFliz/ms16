@@ -1,7 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-
 /*
 <App />
 */
@@ -11,16 +10,14 @@ const App = React.createClass({
     return (
       <article className="app">
         <Header />
-        <Profile />
+        <Section>
+          <Profile />
+        </Section>
         <Footer />
       </article>
     )
   }
 });
-
-/*
-<Header />
-*/
 
 const Header = React.createClass({
 
@@ -36,7 +33,6 @@ const Header = React.createClass({
 /*
 <Footer />
 */
-
 const Footer = React.createClass({
 
   render : function() {
@@ -48,18 +44,17 @@ const Footer = React.createClass({
   }
 });
 
-
-
 /*
 <Section />
 */
-
 const Section = React.createClass({
 
   render : function() {
+    const { children } = this.props;
+
     return (
       <section>
-        Section
+        { children }
       </section>
     )
   }
@@ -67,11 +62,13 @@ const Section = React.createClass({
 
 /*
 This component is meant to display a full user profile.
-<Profile />
+<Profile name="" title="" url="" email="" phone="" />
 */
 
 const Profile = React.createClass({
-  getDefaultProps() {
+
+    /* Set default props in case api fails */
+    getDefaultProps() {
     return {
       name:   'Jane Jetson',
       title:  'The Coldest',
@@ -84,9 +81,10 @@ const Profile = React.createClass({
   render : function() {
     const { name, title, url, email, phone } = this.props;
 
+    /* Stub styles for future use */
     const styles = {
         "profile": {
-          "background": "transparent"
+          "": ""
         },
         "name": {
           "": ""
@@ -116,6 +114,5 @@ const Profile = React.createClass({
     )
   }
 });
-
 
 ReactDOM.render(<App />, document.querySelector('#main'));

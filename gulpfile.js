@@ -22,14 +22,14 @@ var historyApiFallback = require('connect-history-api-fallback')
   Styles Task
 */
 gulp.task('css', function () {
-  return gulp.src('./css/main.css')
+  return gulp.src('./css/style.css')
       .pipe( sourcemaps.init() )
       .pipe( postcss([
         require('postcss-import'),
         require('postcss-cssnext')
         ]) )
       .pipe( sourcemaps.write('.') )
-      .pipe( gulp.dest('build/css/') );
+      .pipe( gulp.dest('./') );
 });
 
 
@@ -56,7 +56,7 @@ function handleErrors() {
 
 function buildScript(file, watch) {
   var props = {
-    entries: ['./src/' + file],
+    entries: ['./js/' + file],
     debug : true,
     cache: {},
     packageCache: {},
@@ -71,11 +71,11 @@ function buildScript(file, watch) {
     return stream
       .on('error', handleErrors)
       .pipe(source(file))
-      .pipe(gulp.dest('./build/'))
+      .pipe(gulp.dest('./'))
       .pipe(buffer())
       .pipe(uglify())
       .pipe(rename('app.min.js'))
-      .pipe(gulp.dest('./build'))
+      .pipe(gulp.dest('./'))
       .pipe(reload({stream:true}))
   }
 
